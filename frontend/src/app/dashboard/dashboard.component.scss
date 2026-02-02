@@ -1,0 +1,45 @@
+.spacer {
+  flex: 1;
+}
+
+.dashboard-container {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+/* Balance card */
+.balance-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 24px;
+  text-align: center;
+}
+
+.balance {
+  margin-top: 12px;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+/* Actions layout */
+.actions-grid {
+  width: 100%;
+  max-width: 700px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+  .actions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .actions-grid button {
+    width: 100%;
+  }
+}

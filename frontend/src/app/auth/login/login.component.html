@@ -1,0 +1,46 @@
+<div class="login-wrapper">
+  <div class="logo-wrapper">
+    <img src="logo.png" alt="Bank Logo" />
+  </div>
+  <mat-card class="login-card mat-elevation-z24">
+    <!-- Email -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" [(ngModel)]="email" name="email" required />
+    </mat-form-field>
+
+    <!-- Password -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        type="password"
+        [(ngModel)]="password"
+        name="password"
+        required
+      />
+    </mat-form-field>
+
+    <!-- Login Button -->
+    <button
+      mat-raised-button
+      color="primary"
+      class="login-button"
+      (click)="login()"
+      [disabled]="loading"
+    >
+      {{ loading ? "Logging in..." : "Login" }}
+    </button>
+
+    <!-- Validation Message -->
+    <div class="validation-text" *ngIf="error">
+      {{ error }}
+    </div>
+
+    <!-- Signup Text -->
+    <div class="signup-text">
+      Don’t have an account?
+      <a routerLink="/register">Sign up</a>
+    </div>
+  </mat-card>
+</div>

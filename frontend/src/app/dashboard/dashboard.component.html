@@ -1,0 +1,55 @@
+<!-- Top bar -->
+<mat-toolbar color="primary">
+  <span>Fake Bank</span>
+  <span class="spacer"></span>
+  <button mat-button (click)="logout()">Logout</button>
+</mat-toolbar>
+
+<div class="dashboard-container">
+  <!-- balance section  -->
+  <mat-card class="balance-card mat-elevation-z8">
+    <h3>Current Balance</h3>
+
+    <div *ngIf="loading">Loading...</div>
+
+    <div *ngIf="!loading" class="balance">${{ balance | number: "1.2-2" }}</div>
+  </mat-card>
+
+  <!-- features buttons section -->
+  <div class="actions-grid">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="selectFeature('deposit')"
+    >
+      Deposit
+    </button>
+
+    <button mat-raised-button color="warn" (click)="selectFeature('withdraw')">
+      Withdraw
+    </button>
+
+    <button
+      mat-raised-button
+      color="accent"
+      (click)="selectFeature('transactions')"
+    >
+      Transactions
+    </button>
+  </div>
+
+  <!-- active section -->
+  <app-deposit
+    *ngIf="activeView === 'deposit'"
+    (success)="onTransactionSuccess()"
+  ></app-deposit>
+
+  <app-withdraw
+    *ngIf="activeView === 'withdraw'"
+    (success)="onTransactionSuccess()"
+  ></app-withdraw>
+  <!-- transaction history section -->
+  <app-transaction-history
+    *ngIf="activeView === 'transactions'"
+  ></app-transaction-history>
+</div>

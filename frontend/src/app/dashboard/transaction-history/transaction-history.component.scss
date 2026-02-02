@@ -1,0 +1,19 @@
+.table-card {
+  width: 100%;
+  max-width: 900px;
+  padding: 24px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+table {
+  margin-top: 16px;
+}
+
+@media (max-width: 768px) {
+  table {
+    font-size: 13px;
+  }
+}

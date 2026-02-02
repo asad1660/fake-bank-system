@@ -1,0 +1,22 @@
+<mat-card class="action-card mat-elevation-z8">
+  <h3>Withdraw</h3>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Amount</mat-label>
+    <input matInput type="number" [(ngModel)]="amount" />
+  </mat-form-field>
+
+  <button
+    mat-raised-button
+    color="warn"
+    class="full-width"
+    (click)="withdraw()"
+    [disabled]="loading"
+  >
+    {{ loading ? "Processing..." : "Withdraw" }}
+  </button>
+
+  <div class="error" *ngIf="error">
+    {{ error }}
+  </div>
+</mat-card>

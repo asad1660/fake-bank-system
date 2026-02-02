@@ -1,0 +1,16 @@
+# Node
+node_modules
+dist
+
+# Env files
+.env
+.env.*
+
+# Docker
+mongo-data
+
+# OS
+.DS_Store
+
+# Angular
+.angular

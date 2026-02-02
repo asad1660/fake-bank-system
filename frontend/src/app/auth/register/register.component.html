@@ -1,0 +1,47 @@
+<div class="signup-wrapper">
+  <div class="logo-wrapper">
+    <img src="logo.png" alt="Bank Logo" />
+  </div>
+
+  <mat-card class="signup-card mat-elevation-z24">
+    <!-- Email -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" [(ngModel)]="email" name="email" required />
+    </mat-form-field>
+
+    <!-- Password -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        type="password"
+        [(ngModel)]="password"
+        name="password"
+        required
+      />
+    </mat-form-field>
+
+    <!-- Register Button -->
+    <button
+      mat-raised-button
+      color="primary"
+      class="signup-button"
+      (click)="register()"
+      [disabled]="loading"
+    >
+      {{ loading ? "Creating account..." : "Sign up" }}
+    </button>
+
+    <!-- Validation Message -->
+    <div class="validation-text" *ngIf="error">
+      {{ error }}
+    </div>
+
+    <!-- signup Text -->
+    <div class="signup-text">
+      Already have an account?
+      <a routerLink="/login">login</a>
+    </div>
+  </mat-card>
+</div>
